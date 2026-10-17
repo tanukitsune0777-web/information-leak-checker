@@ -1,0 +1,15 @@
+{
+  "feeds": [
+    {
+      "name": "Google News RSS（日本語：情報流出・不正アクセス）",
+      "url": "https://news.google.com/rss/search?q=%E6%83%85%E5%A0%B1%E6%B5%81%E5%87%BA%20OR%20%E4%B8%8D%E6%AD%A3%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%20OR%20%E3%82%B5%E3%82%A4%E3%83%90%E3%83%BC%E6%94%BB%E6%92%83%20when%3A30d&hl=ja&gl=JP&ceid=JP%3Aja",
+      "country": "日本・国際"
+    },
+    {
+      "name": "Google News RSS（英語：data breach / cyberattack）",
+      "url": "https://news.google.com/rss/search?q=data%20breach%20OR%20cyberattack%20OR%20ransomware%20when%3A30d&hl=en-US&gl=US&ceid=US%3Aen",
+      "country": "海外"
+    }
+  ],
+  "note": "RSS検索結果は候補発見用です。記事の存在だけで公式確認済みとは判断しません。"
+}

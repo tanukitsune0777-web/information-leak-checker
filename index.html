@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#155eef">
+<meta name="description" content="企業・サービスの情報流出に関する公表情報を確認するための情報整理サイト。">
+<title>情報流出チェッカー｜公表情報を確認</title>
+<style>
+:root{--blue:#155eef;--navy:#14213d;--bg:#f5f7fb;--muted:#5d6b82;--line:#e3e8f1;--white:#fff;--green:#087443;--yellow:#8a4b00;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--navy);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+header{background:linear-gradient(135deg,#155eef,#6438d8);color:white;padding:26px 16px 24px}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px}
+.logo{font-size:13px;font-weight:800;letter-spacing:.08em;opacity:.9}
+h1{font-size:29px;line-height:1.2;margin:10px 0}
+header p{margin:10px 0 0;color:#edf2ff;font-size:14px}
+main{padding:18px 0 42px}
+.notice{background:#fff8e7;border:1px solid #f4d58d;color:#68420b;padding:13px 14px;border-radius:14px;font-size:13px;margin-bottom:14px}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 4px 14px #172b4d08}
+h2{font-size:18px;margin:0 0 8px}
+.sub{font-size:13px;color:var(--muted);margin:0 0 12px}
+input[type=search]{width:100%;padding:13px 14px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+button,.pill{font:inherit}
+.filter{border:1px solid #d0d7e2;background:#fff;border-radius:999px;padding:7px 12px;font-size:13px;cursor:pointer}
+.filter.active{background:#eaf1ff;color:#1747b8;border-color:#9dbaff;font-weight:700}
+.item{border:1px solid var(--line);border-radius:14px;padding:13px;margin-top:10px}
+.itemtop{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.item h3{font-size:16px;margin:0 0 5px}
+.meta{font-size:12px;color:var(--muted);margin:4px 0}
+.badge{display:inline-block;border-radius:7px;padding:3px 8px;font-size:11px;font-weight:800;white-space:nowrap;background:#fff0d6;color:var(--yellow)}
+.badge.confirmed{background:#e1f7eb;color:var(--green)}.badge.possible{background:#fff0d6;color:var(--yellow)}.badge.investigating{background:#eaf1ff;color:#1747b8}
+.desc{font-size:14px;margin:9px 0}
+a{color:#1747b8;overflow-wrap:anywhere}
+.source{font-size:13px;font-weight:700}
+.empty{padding:22px 10px;text-align:center;color:var(--muted);font-size:14px}
+footer{font-size:12px;color:var(--muted);padding:0 0 28px}
+footer a{margin-right:12px}
+.small{font-size:12px;color:var(--muted)}
+button:focus,input:focus,a:focus{outline:3px solid #a8c5ff;outline-offset:2px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="logo">PUBLIC INFORMATION GUIDE</div>
+<h1>情報流出チェッカー</h1>
+<p>企業・サービスの公表情報を見つけて、公式発表を確認するためのサイトです。</p>
+</div></header>
+<main class="wrap">
+<div class="notice"><strong>ご注意：</strong>このサイトだけで、あなたの情報が流出したかどうかを確定することはできません。掲載内容は情報収集の手がかりです。重要な判断は、必ずリンク先の公式発表で確認してください。</div>
+<section class="card">
+<h2>情報を探す</h2>
+<p class="sub">会社名・サービス名・記事タイトルで検索できます。</p>
+<input id="search" type="search" placeholder="例：通販サイト、通信会社、データ流出" aria-label="情報を検索">
+<div class="filters" aria-label="状態で絞り込み">
+<button class="filter active" data-filter="all">すべて</button>
+<button class="filter" data-filter="confirmed">確認済み</button>
+<button class="filter" data-filter="possible">可能性あり</button>
+<button class="filter" data-filter="investigating">調査中</button>
+</div>
+<p class="small" id="updated">掲載情報を読み込み中…</p>
+<div id="results"><div class="empty">情報を読み込んでいます。</div></div>
+</section>
+<section class="card">
+<h2>このサイトの見方</h2>
+<p><strong>確認済み：</strong>公式発表などでインシデントの発生を確認できたもの。個人への影響まで確定しているとは限りません。</p>
+<p><strong>可能性あり：</strong>信頼できる報道などで可能性が伝えられているものの、公式発表を確認できていないもの。</p>
+<p><strong>調査中：</strong>情報の真偽・影響範囲・流出件数などを確認中のもの。</p>
+<p class="small">件数が公表されていない場合は「未確認」と表示します。推測で件数を補うことはしません。</p>
+</section>
+</main>
+<footer class="wrap">
+<a href="privacy.html">プライバシーについて</a><a href="disclaimer.html">免責事項</a><a href="https://www.ipa.go.jp/security/" target="_blank" rel="noopener">IPA（情報セキュリティ）</a>
+<p>このサイトは情報提供を目的としたもので、問い合わせ窓口・個別調査サービスは設けていません。</p>
+</footer>
+<script>
+const statusText={confirmed:"確認済み",possible:"可能性あり",investigating:"調査中"};
+let allItems=[], currentFilter="all";
+const $=id=>document.getElementById(id);
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function validHttp(url){try{const u=new URL(url);return u.protocol==="https:"||u.protocol==="http:"}catch{return false}}
+function render(){
+ const q=$("search").value.trim().toLocaleLowerCase();
+ const items=allItems.filter(x=>{
+   const hay=[x.organization,x.title,x.summary,x.country].join(" ").toLocaleLowerCase();
+   return (!q||hay.includes(q))&&(currentFilter==="all"||x.status===currentFilter);
+ }).sort((a,b)=>(b.published||"").localeCompare(a.published||""));
+ if(!items.length){$("results").innerHTML='<div class="empty">該当する情報はまだありません。<br>掲載がないことは、情報流出がないことを意味しません。</div>';return}
+ $("results").innerHTML=items.map(x=>{
+   const status=x.status||"investigating";
+   const source=validHttp(x.source_url)?`<a class="source" href="${esc(x.source_url)}" target="_blank" rel="noopener noreferrer">元情報を開く ↗</a>`:"元情報リンクは未確認";
+   const follow=validHttp(x.followup_url)?` · <a href="${esc(x.followup_url)}" target="_blank" rel="noopener noreferrer">続報・公式案内</a>`:"";
+   return `<article class="item"><div class="itemtop"><div><h3>${esc(x.organization||"組織名未確認")}</h3><div class="meta">${esc(x.title||"情報流出に関する情報")} · ${esc(x.country||"地域未確認")}</div></div><span class="badge ${esc(status)}">${statusText[status]||"調査中"}</span></div><p class="desc">${esc(x.summary||"詳細はリンク先で確認してください。")}</p><div class="meta">発表・記事日：${esc(x.published||"未確認")}　｜　流出件数：${esc(x.records||"未確認")}</div><div class="meta">影響情報：${esc(x.data_types||"未確認")}　｜　最終確認：${esc(x.last_checked||"未確認")}</div><div>${source}${follow}</div>${x.status!=="confirmed"?'<p class="small">※報道等から自動収集された候補です。公式発表による確認は済んでいません。</p>':""}</article>`;
+ }).join("");
+}
+$("search").addEventListener("input",render);
+document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{
+ currentFilter=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));render();
+}));
+fetch("data/incidents.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("data");return r.json()}).then(data=>{
+ allItems=Array.isArray(data.incidents)?data.incidents:[];
+ $("updated").textContent=`データ最終更新：${data.last_updated||"未確認"} · 掲載 ${allItems.length} 件`;
+ render();
+}).catch(()=>{
+ $("updated").textContent="データを読み込めませんでした。";
+ $("results").innerHTML='<div class="empty">データを読み込めませんでした。時間をおいて再度ご確認ください。</div>';
+});
+</script>
+</body></html>
